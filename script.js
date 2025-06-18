@@ -12,17 +12,21 @@ function askNumber(){
 function didIwin(num){
     if (num === 22) {
         alert("Bravo ! Vous avez deviné le nombre");
+        return true
     } else if(num > 22) {
         alert("Plus petit");
+        return false
     } else if(num < 22) {
         alert("Plus grand");
-
+        return false
     }
     
 }
 
 function gamePlay(){
     let givenNumber = askNumber()
-    didIwin(givenNumber)
+    while(didIwin(givenNumber)!=true){
+       givenNumber = askNumber() 
+    }
 }
 gamePlay()
