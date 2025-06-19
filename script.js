@@ -9,24 +9,28 @@ function askNumber(){
 // console.log("Tu as saisi : " + givenNumber);
 
 
-function didIwin(num){
-    if (num === 22) {
+function didIwin(num, num2){
+    if (num === num2) {
         alert("Bravo ! Vous avez deviné le nombre");
         return true
-    } else if(num > 22) {
+    } else if(num > num2) {
         alert("Plus petit");
         return false
-    } else if(num < 22) {
-        alert("Plus grand");
-        return false
-    }
-    
+    } else if(num < num2) {
+        alert("Plus grand");s
+        return false  }
 }
-
 function gamePlay(){
+    let guessNumber = RandomNumber()
     let givenNumber = askNumber()
-    while(didIwin(givenNumber)!=true){
+    while(didIwin(givenNumber, guessNumber)!=true){
        givenNumber = askNumber() 
     }
 }
 gamePlay()
+
+function RandomNumber(){
+    let input = prompt("Choisi un nombre entre 0 et 50!")
+    input = Number(input)
+    return input
+}
